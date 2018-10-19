@@ -17,6 +17,12 @@ return [
         ],
 
         //Database Settings
-        'db'
+        'db' => [
+            'host' => 'localhost',
+            'user' => 'root',
+            'pass' => '',
+            'dbname' => 'tokobuku',
+            'driver' => 'mysql'
+        ]
     ],
 ];
