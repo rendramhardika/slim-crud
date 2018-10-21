@@ -21,7 +21,8 @@ $container['logger'] = function ($c) {
 //database : Koneksi database ke dalam slim
 $container['db'] = function ($c){
     $settings = $c->get('settings')['db'];
-    $conn = new PDO("mysql:host=" .$settings['host'].";dbname=". $settings[dbname], $settings['user'], $settings['pass']);
+    $server = $settings['driver'].":host=".$settings['host'].";dbname=".$settings['dbname'];
+    $conn = new PDO($server, $settings["user"], $settings["pass"]);  
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $conn;
